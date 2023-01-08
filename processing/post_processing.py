@@ -39,11 +39,12 @@ def post_process_trip_middle(y,scale,thd,loop=False):
     return y_new
 
 def post_process_trip_end(y,scale,thd,scale_end,loop=False):
-    # length of y must be greater than 2*scale    
+    # length of y should greater than scale + scale_end    
     y_new = y.copy()
     num = len(y)
-    y_new[0:(scale + scale_end)] = post_process_trip_middle(y[0:(scale+scale_end)],scale_end,thd,loop)
-    y_new[(num-scale-scale_end):] = post_process_trip_middle(y[(num-scale-scale_end):],scale_end,thd,loop)
+    if num > scale+scale_end:
+        y_new[0:(scale + scale_end)] = post_process_trip_middle(y[0:(scale+scale_end)],scale_end,thd,loop)
+        y_new[(num-scale-scale_end):] = post_process_trip_middle(y[(num-scale-scale_end):],scale_end,thd,loop)
     if True:
         cnt = count_modes(y_new[0:scale_end])
         y_new[0:scale_end] = np.argmax(cnt)
