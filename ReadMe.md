@@ -2,7 +2,7 @@
 
 ### Summary
 
-This is an pytorch implementation for out **3P-MSPointNet** semantic segmentaion network. In addition, data preprocessing, prediciotn results post-processing, GPS trip visualization  and the corrected [GeoLife](https://www.microsoft.com/en-us/download/details.aspx?id=52367) dataset are also included here. 
+This is an PyTorch implementation of our **3P-MSPointNet** semantic segmentaion network for **pointwise transportation modes identification** using GPS data. In addition, data preprocessing, prediciotn results post-processing, GPS trip visualization  and the corrected [GeoLife](https://www.microsoft.com/en-us/download/details.aspx?id=52367) dataset are also included here. 
 
 By proposing a on-stage framework, this work aims to directly predict transportation modes of each GPS point in a trip *without* dividing the trip into signle-one mode segments. Compared to dominant two-stage methods, which divide the trip into segments with only one transportation mode first and then classify these segments, our method can leverage more context information and thus achieve higher overall identification accuracy. By replacing convolutiions and poolings with causal convolutions and pooling respectively, our method can achieve real-time prediction. In addition, our model is light-weighted and receive trips with various lengths. 
 
@@ -21,7 +21,7 @@ geopy >= 2.1.0
 
 ### Usage
 
-All the described data pre-processing, models and post-processing are implemented with Python programming language using PyTorch for deep learning models. Reproduced works lie in author's another project [TrajYOLO-SSD](https://github.com/RadetzkyLi/TrajYOLO-SSD)  , in which ```/reproduce/ClassicCls.py```,``` /reproduce/DeepCls.py```, ```/reproduce/ClassicSeg.py```are implementations of two-stages methods using classic classifiers, two-stage methods using deep learning algorithms and one-stage methods using classic classifiers. 
+All the described data pre-processing, models and post-processing are implemented with Python programming language using PyTorch for deep learning models. Reproduced works lie in author's another project [TrajYOLO-SSD](https://github.com/RadetzkyLi/TrajYOLO-SSD)  , in which ```/reproduce/ClassicCls.py```,``` /reproduce/DeepCls.py```, ```/reproduce/ClassicSeg.py```are implementations of two-stages methods using classic classifiers, two-stage methods using deep learning algorithms and one-stage methods using classic classifiers, respectively. 
 
 There are the following 4 folders:
 
@@ -41,7 +41,7 @@ There are the following 4 folders:
 
 4. **utils**
 
-   * Some common used functions and map visualization function.
+   * Some common used functions and map visualization functions.
 
 ### Citation
 
