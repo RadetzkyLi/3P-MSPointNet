@@ -1,20 +1,14 @@
 ## Pointwise predictions using 3P-MSPointNet
 
-### summary
+### Summary
 
-This is an pytorch implementation for out 3P-MSPointNet semantic segmentaion network. In addition, data preprocessing, prediciotn results post-processing, GPS trip visualization  and the corrected [GeoLife](https://www.microsoft.com/en-us/download/details.aspx?id=52367) dataset are also included here. 
+This is an pytorch implementation for out **3P-MSPointNet** semantic segmentaion network. In addition, data preprocessing, prediciotn results post-processing, GPS trip visualization  and the corrected [GeoLife](https://www.microsoft.com/en-us/download/details.aspx?id=52367) dataset are also included here. 
 
-By proposing a on-stage framework, this work aims to directly predict transportation modes of each GPS point in a trip without dividing the trip into signle-one mode segments. Compared to dominant two-stage methods, which divide the trip into segments with only one transportation mode first and then classify these segments, our method can leverage more context information and thus achieve higher overall identification accuracy. By replacing convolutiions and poolings with causal convolutions and pooling respectively, our method can achieve real-time prediction. In addition, our model is light-weighted and receive trips with various lengths. 
-
-If you find our work useful in your research, please consider citing:
-
-**Li, R., Yang, Z., Pei, X., Yue, Y., Jia, S., Han, C. and He, Z., 2022. A One-Stage Framework for Point-Based Transportation Mode Identification Using Gps Data. *Available at SSRN 4158243*.**
-
-which is available at: http://ssrn.com/abstract=4158243. 
+By proposing a on-stage framework, this work aims to directly predict transportation modes of each GPS point in a trip *without* dividing the trip into signle-one mode segments. Compared to dominant two-stage methods, which divide the trip into segments with only one transportation mode first and then classify these segments, our method can leverage more context information and thus achieve higher overall identification accuracy. By replacing convolutiions and poolings with causal convolutions and pooling respectively, our method can achieve real-time prediction. In addition, our model is light-weighted and receive trips with various lengths. 
 
 It's recomended to open an issue for further information about the methodology. Or you can contact the author by e-mail ([lirs926535@outlook.com](lirs926535@outlook.com))
 
-### requirements
+### Requirements
 
 ```python
 python >= 3.7
@@ -25,15 +19,15 @@ folium >= 0.12.1
 geopy >= 2.1.0
 ```
 
-### usage
+### Usage
 
-All the described data pre-processing, models and post-processing are implemented with Python programming language using PyTorch for deep learning models. Reproduced works lie in author's another project ``TrajYOLO-SSD``  , in which ```/reproduce/ClassicCls.py```,``` /reproduce/DeepCls.py```, ```/reproduce/ClassicSeg.py```are implementations of two-stages methods using classic classifiers, two-stage methods using deep learning algorithms and one-stage methods using classic classifiers. 
+All the described data pre-processing, models and post-processing are implemented with Python programming language using PyTorch for deep learning models. Reproduced works lie in author's another project [TrajYOLO-SSD](https://github.com/RadetzkyLi/TrajYOLO-SSD)  , in which ```/reproduce/ClassicCls.py```,``` /reproduce/DeepCls.py```, ```/reproduce/ClassicSeg.py```are implementations of two-stages methods using classic classifiers, two-stage methods using deep learning algorithms and one-stage methods using classic classifiers. 
 
-Their are the following 4 folders:
+There are the following 4 folders:
 
 1. **data**
 
-   * `Traj Label Each - C.rar` : The corrected GeoLife dataset whose annotations were corrected manually with the help of trajectory visualization on map. 
+   * `Traj Label Each - C.rar` : The corrected GeoLife dataset whose annotations were corrected manually with the help of trajectory visualization on map.  The meanings of fields are the same as that of original GeoLife.
 
 2. **layers**
 
@@ -41,10 +35,28 @@ Their are the following 4 folders:
 
 3. **processing**
 
-   * `pre__processing.py` and `DL_data_creation.py` are utilized to extract pointwise motion characteristics from raw GPS trajectories.
+   * `pre__processing.py` and `DL_data_creation.py` are utilized to extract pointwise motion characteristics from raw GPS trajectories. This part refers to another [repository](https://github.com/sinadabiri/Deep-Semi-Supervised-GPS-Transport-Mode).
 
    * `post_processing.py` is used to refine predictions from 3P-MSPointNet to reduce dis-continuity.
 
 4. **utils**
 
    * Some common used functions and map visualization function.
+
+### Citation
+
+If you find our work useful in your research, please consider citing:
+
+```
+@article{LI2023104127,
+title = {A novel one-stage approach for pointwise transportation mode identification inspired by point cloud processing},
+journal = {Transportation Research Part C: Emerging Technologies},
+volume = {152},
+pages = {104127},
+year = {2023},
+issn = {0968-090X},
+doi = {https://doi.org/10.1016/j.trc.2023.104127},
+url = {https://www.sciencedirect.com/science/article/pii/S0968090X2300116X},
+author = {Rongsong Li and Zi Yang and Xin Pei and Yun Yue and Shaocheng Jia and Chunyang Han and Zhengbing He},
+}
+```
